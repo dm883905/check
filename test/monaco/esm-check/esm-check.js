@@ -94,3 +94,12 @@ async function extractSourcesWithoutCSS() {
 		fs.writeFileSync(dstFilename, contents);
 	}
 }
+export interface Unique {
+  id: string;
+  title: string;
+  description?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "unstored-media".
+ */

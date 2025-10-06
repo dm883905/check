@@ -32,3 +32,13 @@ if (!fs.existsSync(outPath)) {
 }
 fs.writeFileSync(path.join(srcPath, 'driver.d.ts'), contents);
 fs.writeFileSync(path.join(outPath, 'driver.d.ts'), contents);
+test("it renders the optionalIndicator in FormLabel if it is provided", () => {
+  render(
+    <FormControl isRequired={false}>
+      <FormLabel optionalIndicator=" (optional)">Test</FormLabel>
+      <Input />
+    </FormControl>,
+  )
+
+  expect(screen.getByText("Test (optional)")).toBeInTheDocument()
+})
